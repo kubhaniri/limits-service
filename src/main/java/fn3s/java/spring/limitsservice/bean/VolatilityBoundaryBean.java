@@ -6,16 +6,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-public class ValidityRangeBean {
+public class VolatilityBoundaryBean {
     @Id
     private String currency;
     private BigDecimal minBounded;
     private BigDecimal maxBounded;
     private Date dateInsertion;
 
-    public ValidityRangeBean() {}
+    public VolatilityBoundaryBean() {}
 
-    public ValidityRangeBean(String currency, BigDecimal minBounded, BigDecimal maxBounded, Date dateInsertion) {
+    public VolatilityBoundaryBean(String currency, BigDecimal minBounded, BigDecimal maxBounded, Date dateInsertion) {
         this.currency = currency;
         this.minBounded = minBounded;
         this.maxBounded = maxBounded;
