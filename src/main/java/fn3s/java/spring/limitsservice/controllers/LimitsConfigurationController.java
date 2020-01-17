@@ -1,8 +1,8 @@
-package fn3s.java.spring.limitsservice;
+package fn3s.java.spring.limitsservice.controllers;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.ribbon.proxy.annotation.Hystrix;
 import fn3s.java.spring.limitsservice.bean.LimitConfiguration;
+import fn3s.java.spring.limitsservice.config.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

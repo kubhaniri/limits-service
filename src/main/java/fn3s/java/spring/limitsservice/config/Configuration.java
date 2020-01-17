@@ -1,4 +1,4 @@
-package fn3s.java.spring.limitsservice;
+package fn3s.java.spring.limitsservice.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
