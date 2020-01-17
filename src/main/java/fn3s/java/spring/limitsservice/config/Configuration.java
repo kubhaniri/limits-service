@@ -3,11 +3,14 @@ package fn3s.java.spring.limitsservice.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @ConfigurationProperties("limits-service")
 public class Configuration {
     private int minimum;
     private int maximum;
+    private List<String> listOfCurrencies;
 
     public int getMinimum() {
         return minimum;

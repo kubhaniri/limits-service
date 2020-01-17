@@ -1,15 +1,15 @@
 package fn3s.java.spring.limitsservice.bean;
 
-public class LimitConfiguration {
+public class LimitConfigurationBean {
     private int maximun;
     private int minimum;
 
-    public LimitConfiguration(int maximun, int minimum) {
+    public LimitConfigurationBean(int maximun, int minimum) {
         this.maximun = maximun;
         this.minimum = minimum;
     }
 
-    public LimitConfiguration() {
+    public LimitConfigurationBean() {
     }
 
     public int getMaximun() {

@@ -1,7 +1,7 @@
 package fn3s.java.spring.limitsservice.controllers;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import fn3s.java.spring.limitsservice.bean.LimitConfiguration;
+import fn3s.java.spring.limitsservice.bean.LimitConfigurationBean;
 import fn3s.java.spring.limitsservice.config.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,19 +15,19 @@ public class LimitsConfigurationController {
     private Configuration configuration;
 
     @GetMapping("/limits")
-    public LimitConfiguration retrieveLimitFromConfigurations(){
+    public LimitConfigurationBean retrieveLimitFromConfigurations(){
 
 
-        return new LimitConfiguration(configuration.getMaximum(), configuration.getMinimum());
+        return new LimitConfigurationBean(configuration.getMaximum(), configuration.getMinimum());
     }
 
     @GetMapping("/fault-tolerance-example")
     @HystrixCommand(fallbackMethod="fallbackRetrieveConfiguration")
-    public LimitConfiguration retrieveConfigurations(){
+    public LimitConfigurationBean retrieveConfigurations(){
         throw new RuntimeException("Not Availabel");
     }
 
-    public LimitConfiguration fallbackRetrieveConfiguration(){
-        return new LimitConfiguration(0,1);
+    public LimitConfigurationBean fallbackRetrieveConfiguration(){
+        return new LimitConfigurationBean(0,1);
     }
 }
