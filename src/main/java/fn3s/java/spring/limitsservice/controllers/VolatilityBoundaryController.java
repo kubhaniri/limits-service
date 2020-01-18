@@ -1,7 +1,7 @@
 package fn3s.java.spring.limitsservice.controllers;
 
 import fn3s.java.spring.limitsservice.bean.VolatilityBoundaryBean;
-import fn3s.java.spring.limitsservice.service.VolatilityBoundaryService;
+import fn3s.java.spring.limitsservice.service.impl.LimitsConfigurationServiceImpl;
 import fn3s.java.spring.limitsservice.service.impl.VolatilityBoundaryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +17,8 @@ public class VolatilityBoundaryController {
 
     @Autowired
     private VolatilityBoundaryServiceImpl volatilityBoundaryService;
+    @Autowired
+    LimitsConfigurationServiceImpl limitsConfigurationService;
 
     @GetMapping("/volatility-boundary/currency/{currency}")
     public VolatilityBoundaryBean getVolatilityBoundary( @PathVariable String currency){
@@ -28,7 +30,7 @@ public class VolatilityBoundaryController {
     }
 
     private boolean validateCurrency(String currency) {
-        List<String> listOfCurrencies = volatilityBoundaryService.loadCurrencies();
+        List<String> listOfCurrencies = limitsConfigurationService.loadCurrencies();
         return listOfCurrencies.contains(currency);
     }
 }
