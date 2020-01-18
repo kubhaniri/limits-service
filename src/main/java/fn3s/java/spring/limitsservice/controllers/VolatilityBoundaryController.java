@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class VolatilityBoundaryController {
@@ -27,6 +28,7 @@ public class VolatilityBoundaryController {
     }
 
     private boolean validateCurrency(String currency) {
-        return true;
+        List<String> listOfCurrencies = volatilityBoundaryService.loadCurrencies();
+        return listOfCurrencies.contains(currency);
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class Configuration {
     private int minimum;
     private int maximum;
-    private List<String> listOfCurrencies;
+    private String listOfCurrencies;
 
     public int getMinimum() {
         return minimum;
@@ -26,5 +26,13 @@ public class Configuration {
 
     public void setMaximum(int maximum) {
         this.maximum = maximum;
+    }
+
+    public String getListOfCurrencies() {
+        return listOfCurrencies;
+    }
+
+    public void setListOfCurrencies(String listOfCurrencies) {
+        this.listOfCurrencies = listOfCurrencies;
     }
 }
