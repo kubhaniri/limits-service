@@ -17,7 +17,7 @@ public class AmountBoundaryController {
     @Autowired
     private AmountBoundaryServiceImpl amountBoundaryService;
     @Autowired
-    LimitsConfigurationServiceImpl limitsConfigurationService;
+    private LimitsConfigurationServiceImpl limitsConfigurationService;
 
     @GetMapping("/amount-boundary/currency/{currency}")
     public AmountBoundaryBean getAmountBoundary(@PathVariable String currency){

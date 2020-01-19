@@ -1,5 +1,6 @@
 package fn3s.java.spring.limitsservice.service.impl;
 
+import fn3s.java.spring.limitsservice.bean.LimitConfigurationBean;
 import fn3s.java.spring.limitsservice.config.Configuration;
 import fn3s.java.spring.limitsservice.service.LimitsConfigurationService;
 import org.slf4j.Logger;
@@ -17,10 +18,20 @@ public class LimitsConfigurationServiceImpl implements LimitsConfigurationServic
     Configuration configuration;
 
     @Override
+    public LimitConfigurationBean getLimits() {
+        return new LimitConfigurationBean(configuration.getMaximum(), configuration.getMinimum());
+    }
+
+    @Override
     public List<String> loadCurrencies() {
         String listCurrencies = configuration.getListOfCurrencies();
         log.info("loadCurrencies listCurrencies: {}, {}", listCurrencies, this.getClass().getMethods());
         String[] listOfCurrencies = listCurrencies.split(",");
         return Arrays.asList(listOfCurrencies);
+    }
+
+    @Override
+    public LimitConfigurationBean getDefaultsLimits() {
+        return new LimitConfigurationBean(0,1);
     }
 }

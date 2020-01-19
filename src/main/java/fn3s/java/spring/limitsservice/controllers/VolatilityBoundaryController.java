@@ -18,7 +18,7 @@ public class VolatilityBoundaryController {
     @Autowired
     private VolatilityBoundaryServiceImpl volatilityBoundaryService;
     @Autowired
-    LimitsConfigurationServiceImpl limitsConfigurationService;
+    private LimitsConfigurationServiceImpl limitsConfigurationService;
 
     @GetMapping("/volatility-boundary/currency/{currency}")
     public VolatilityBoundaryBean getVolatilityBoundary( @PathVariable String currency){
