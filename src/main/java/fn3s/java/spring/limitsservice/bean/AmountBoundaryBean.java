@@ -12,15 +12,17 @@ public class AmountBoundaryBean {
     private BigDecimal minAmount;
     private BigDecimal maxAmount;
     private Date dateInsertion;
+    private int port;
 
     public AmountBoundaryBean() {
     }
 
-    public AmountBoundaryBean(String currency, BigDecimal minAmount, BigDecimal maxAmount, Date dateInsertion) {
+    public AmountBoundaryBean(String currency, BigDecimal minAmount, BigDecimal maxAmount, Date dateInsertion, int port) {
         this.currency = currency;
         this.minAmount = minAmount;
         this.maxAmount = maxAmount;
         this.dateInsertion = dateInsertion;
+        this.port = port;
     }
 
     public String getCurrency() {
@@ -53,5 +55,24 @@ public class AmountBoundaryBean {
 
     public void setDateInsertion(Date dateInsertion) {
         this.dateInsertion = dateInsertion;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    @Override
+    public String toString() {
+        return "AmountBoundaryBean{" +
+                "currency='" + currency + '\'' +
+                ", minAmount=" + minAmount +
+                ", maxAmount=" + maxAmount +
+                ", dateInsertion=" + dateInsertion +
+                ", port=" + port +
+                '}';
     }
 }

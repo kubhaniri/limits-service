@@ -24,7 +24,7 @@ public class AmountBoundaryController {
         if(validateCurrency(currency)) {
             return amountBoundaryService.getAmountBoundary(currency);
         }else{
-            return new AmountBoundaryBean(currency, BigDecimal.ZERO, BigDecimal.ZERO, new Date());
+            return new AmountBoundaryBean(currency, BigDecimal.ZERO, BigDecimal.ZERO, new Date(), 0);
         }
     }
 

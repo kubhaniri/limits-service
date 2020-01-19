@@ -28,7 +28,7 @@ public class VolatilityBoundaryController {
         if(validateCurrency(currencyfrom, currencyto)) {
             return volatilityBoundaryService.getVolatilityBoundary(currencyfrom,  currencyto);
         }else{
-            return new VolatilityBoundaryBean(currencyfrom, currencyto, BigDecimal.ZERO, BigDecimal.ZERO, new Date());
+            return new VolatilityBoundaryBean(currencyfrom, currencyto, BigDecimal.ZERO, BigDecimal.ZERO, new Date(), 0);
         }
     }
 
