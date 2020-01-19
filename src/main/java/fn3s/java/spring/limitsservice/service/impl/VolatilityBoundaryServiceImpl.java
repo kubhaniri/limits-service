@@ -15,8 +15,8 @@ public class VolatilityBoundaryServiceImpl implements VolatilityBoundaryService 
     VolatilityBoundaryRepository volatilityBoundaryRepository;
 
     @Override
-    public VolatilityBoundaryBean getVolatilityBoundary(String Currency) {
-        log.info("getVolatilityBoundary Currency: {}, {}", Currency, this.getClass().getMethods());
-        return volatilityBoundaryRepository.findByCurrency(Currency);
+    public VolatilityBoundaryBean getVolatilityBoundary(String CurrencyFrom, String CurrencyTo) {
+        log.info("getVolatilityBoundary CurrencyFrom: {},CurrencyTo: {}, {}", CurrencyFrom, this.getClass().getMethods());
+        return volatilityBoundaryRepository.findByCurrencyFromAndAndCurrencyTo(CurrencyFrom, CurrencyTo);
     }
 }

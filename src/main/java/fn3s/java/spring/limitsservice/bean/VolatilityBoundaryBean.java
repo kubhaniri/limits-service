@@ -8,26 +8,37 @@ import java.util.Date;
 @Entity
 public class VolatilityBoundaryBean {
     @Id
-    private String currency;
+    private String currencyFrom;
+    private String currencyTo;
     private BigDecimal minBounded;
     private BigDecimal maxBounded;
     private Date dateInsertion;
 
-    public VolatilityBoundaryBean() {}
+    public VolatilityBoundaryBean() {
+    }
 
-    public VolatilityBoundaryBean(String currency, BigDecimal minBounded, BigDecimal maxBounded, Date dateInsertion) {
-        this.currency = currency;
+    public VolatilityBoundaryBean(String currencyFrom, String currencyTo, BigDecimal minBounded, BigDecimal maxBounded, Date dateInsertion) {
+        this.currencyFrom = currencyFrom;
+        this.currencyTo = currencyTo;
         this.minBounded = minBounded;
         this.maxBounded = maxBounded;
         this.dateInsertion = dateInsertion;
     }
 
-    public String getCurrency() {
-        return currency;
+    public String getCurrencyFrom() {
+        return currencyFrom;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setCurrencyFrom(String currencyFrom) {
+        this.currencyFrom = currencyFrom;
+    }
+
+    public String getCurrencyTo() {
+        return currencyTo;
+    }
+
+    public void setCurrencyTo(String currencyTo) {
+        this.currencyTo = currencyTo;
     }
 
     public BigDecimal getMinBounded() {

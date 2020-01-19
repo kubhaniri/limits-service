@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface VolatilityBoundaryRepository extends JpaRepository<VolatilityBoundaryBean, String> {
 
-    VolatilityBoundaryBean findByCurrency(String Currency);
+    VolatilityBoundaryBean findByCurrencyFromAndAndCurrencyTo(String CurrencyFrom, String CurrencyTo);
 
 }

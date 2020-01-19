@@ -4,5 +4,5 @@ import fn3s.java.spring.limitsservice.bean.VolatilityBoundaryBean;
 
 public interface VolatilityBoundaryService {
 
-    VolatilityBoundaryBean getVolatilityBoundary(String Currency);
+    VolatilityBoundaryBean getVolatilityBoundary(String CurrencyFrom, String CurrencyTo);
 }

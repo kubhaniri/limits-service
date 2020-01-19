@@ -20,17 +20,20 @@ public class VolatilityBoundaryController {
     @Autowired
     private LimitsConfigurationServiceImpl limitsConfigurationService;
 
-    @GetMapping("/volatility-boundary/currency/{currency}")
-    public VolatilityBoundaryBean getVolatilityBoundary( @PathVariable String currency){
-        if(validateCurrency(currency)) {
-            return volatilityBoundaryService.getVolatilityBoundary(currency);
+    @GetMapping("/volatility-boundary/currencyfrom/{currencyfrom}/currencyto/{currencyto}")
+    public VolatilityBoundaryBean getVolatilityBoundary(
+            @PathVariable String currencyfrom,
+            @PathVariable String currencyto
+    ){
+        if(validateCurrency(currencyfrom, currencyto)) {
+            return volatilityBoundaryService.getVolatilityBoundary(currencyfrom,  currencyto);
         }else{
-            return new VolatilityBoundaryBean(currency, BigDecimal.ZERO, BigDecimal.ZERO, new Date());
+            return new VolatilityBoundaryBean(currencyfrom, currencyto, BigDecimal.ZERO, BigDecimal.ZERO, new Date());
         }
     }
 
-    private boolean validateCurrency(String currency) {
+    private boolean validateCurrency(String currencyfrom, String currencyto) {
         List<String> listOfCurrencies = limitsConfigurationService.loadCurrencies();
-        return listOfCurrencies.contains(currency);
+        return null!= currencyto ? (listOfCurrencies.contains(currencyfrom) && listOfCurrencies.contains(currencyto)): listOfCurrencies.contains(currencyfrom);
     }
 }
